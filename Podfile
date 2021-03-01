@@ -6,6 +6,6 @@ target 'Task' do
   use_frameworks!
 
   # Pods for Task
-  pod 'Alamofire', '~> 5.2'
+  pod 'Alamofire', '5.4.0'
 
 end
