@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0833E09525EE2DD600A00CAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833E09425EE2DD600A00CAC /* Constants.swift */; };
+		0833E09825EE2FEC00A00CAC /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0833E09725EE2FEC00A00CAC /* Image.swift */; };
 		0856F42125ECF9D700AF496F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0856F42025ECF9D700AF496F /* AppDelegate.swift */; };
 		0856F42325ECF9D700AF496F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0856F42225ECF9D700AF496F /* SceneDelegate.swift */; };
 		0856F42525ECF9D700AF496F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0856F42425ECF9D700AF496F /* HomeViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0833E09425EE2DD600A00CAC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0833E09725EE2FEC00A00CAC /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		0856F41D25ECF9D700AF496F /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0856F42025ECF9D700AF496F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0856F42225ECF9D700AF496F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0833E09125EE2DAF00A00CAC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0833E09225EE2DBA00A00CAC /* extensions */,
+				0833E09425EE2DD600A00CAC /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0833E09225EE2DBA00A00CAC /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0833E09725EE2FEC00A00CAC /* Image.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		0856F41425ECF9D700AF496F = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +106,7 @@
 		0856F41F25ECF9D700AF496F /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				0833E09125EE2DAF00A00CAC /* Helpers */,
 				0856F45225ED17AA00AF496F /* Repositories */,
 				0856F43925ECFB7500AF496F /* Store */,
 				0856F43825ECFB6E00AF496F /* Model */,
@@ -303,6 +325,8 @@
 				0856F46625ED8C5A00AF496F /* Item.swift in Sources */,
 				0856F43B25ECFB8700AF496F /* Store.swift in Sources */,
 				0856F46125ED1D5700AF496F /* HomeTableViewCell.swift in Sources */,
+				0833E09825EE2FEC00A00CAC /* Image.swift in Sources */,
+				0833E09525EE2DD600A00CAC /* Constants.swift in Sources */,
 				0856F44625ED014E00AF496F /* Response.swift in Sources */,
 				0856F43E25ECFBCB00AF496F /* Endpoint.swift in Sources */,
 				0856F45A25ED1D1E00AF496F /* HomeTableViewHeader.swift in Sources */,

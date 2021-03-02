@@ -29,19 +29,16 @@ class HomeViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
-        tableView.register(UINib(nibName: "HomeTableViewHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "HomeTableViewHeader")
+        tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellNibName)
+        tableView.register(UINib(nibName: Constants.headerNibName, bundle: nil), forHeaderFooterViewReuseIdentifier: Constants.headerNibName)
         
-        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchButtonTap(_ :)))
-        let filterButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(filterButtonTap(_ :)))
-        
-        
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: Constants.searchImageName), style: .plain, target: self, action: #selector(searchButtonTap(_ :)))
+        let filterButton = UIBarButtonItem(image: UIImage(systemName: Constants.filterImageName), style: .plain, target: self, action: #selector(filterButtonTap(_ :)))
         
         navigationItem.rightBarButtonItems = [searchButton, filterButton]
         
         self.presenter = HomeViewPresenter(homeView: self)
         self.presenter.getPhotoes()
-        
         
         // init search controller
         searchController = UISearchController(searchResultsController: nil)
@@ -57,7 +54,7 @@ class HomeViewController: UIViewController {
     @objc func filterButtonTap(_ sender: UIBarButtonItem) {
         let actionsheet = UIAlertController(title: "Sort Order", message: "", preferredStyle: .actionSheet)
         
-        actionsheet.addAction(UIAlertAction(title: "Ascending", style: .default, handler: { (action) in
+        actionsheet.addAction(UIAlertAction(title: Constants.textAscending, style: .default, handler: { (action) in
             let sorted = self.photoesList.sorted(by: { $0.albumId! < $1.albumId! })
             self.photoesList = sorted
 
@@ -65,7 +62,7 @@ class HomeViewController: UIViewController {
             self.tableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         }))
         
-        actionsheet.addAction(UIAlertAction(title: "Descending", style: .default, handler: { (action) in
+        actionsheet.addAction(UIAlertAction(title: Constants.textDescending, style: .default, handler: { (action) in
             let sorted = self.photoesList.sorted(by: { $0.albumId! > $1.albumId! })
             self.photoesList = sorted
 
@@ -73,7 +70,7 @@ class HomeViewController: UIViewController {
             self.tableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         }))
         
-        actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionsheet.addAction(UIAlertAction(title: Constants.textCancel, style: .cancel, handler: nil))
         
         self.present(actionsheet, animated: true, completion: nil)
     }
@@ -137,7 +134,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellNibName, for: indexPath) as! HomeTableViewCell
         
         if let items = self.photoesList[indexPath.section].items {
             cell.setup(item: items[indexPath.row])
@@ -149,7 +146,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HomeTableViewHeader") as! HomeTableViewHeader
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerNibName) as! HomeTableViewHeader
 
         let albumID = self.photoesList[section].albumId ?? -1
         header.lblSectionTitle.text = "Album ID: \(albumID)"

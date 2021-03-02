@@ -7,5 +7,6 @@ target 'Task' do
 
   # Pods for Task
   pod 'Alamofire', '5.4.0'
+  pod 'SDWebImage', '5.0'
 
 end
